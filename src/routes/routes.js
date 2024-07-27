@@ -5,7 +5,7 @@ const router = express.Router();
 
 router
     .get("/", waControllers.verifyToken)
-    .post("/", waControllers.recivedMessage);
+    .post("/", waControllers.receivedMessage);
 
 
 export default router;
