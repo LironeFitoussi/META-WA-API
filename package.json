@@ -1,0 +1,19 @@
+{
+  "name": "meta-wa-api",
+  "version": "1.0.0",
+  "description": "This repository contains my learning journey and resources for integrating the WhatsApp Cloud API into web applications. Through this project, I'm exploring how to leverage WhatsApp's powerful messaging capabilities for business communications and chatbot development.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
