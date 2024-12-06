@@ -52,9 +52,9 @@ const verifyToken = (req, res) => {
     const token = req.query['hub.verify_token'];
     const challenge = req.query['hub.challenge'];
 
-    // console.log("Access token: ", accessToken);
-    // console.log("Token: ", token);
-    // console.log("Challenge: ", challenge);
+    console.log("Access token: ", accessToken);
+    console.log("Token: ", token);
+    console.log("Challenge: ", challenge);
     
     if (!token || !challenge) {
       return res.status(400).send('Invalid request');
