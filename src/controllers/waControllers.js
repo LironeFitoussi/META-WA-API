@@ -96,7 +96,7 @@ const receivedMessage = (req, res) => {
     myConsole.log(message);
     const responseMessage = checkMessage(message, value);
     // console.log(responseMessage);
-    res.send(responseMessage);
+    res.send(responseMessage.body);
   } catch (error) {
     myConsole.error(error);
     res.sendStatus(500);
