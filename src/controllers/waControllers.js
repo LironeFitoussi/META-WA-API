@@ -48,7 +48,7 @@ const checkMessage = (message) => {
 
 const verifyToken = (req, res) => {
   try {
-    const accessToken = process.env.WHATSAPP_TOKEN;
+    const accessToken = process.env.WEBHOOK_TOKEN;
     const token = req.query['hub.verify_token'];
     const challenge = req.body['hub.challenge'];
 
@@ -61,7 +61,7 @@ const verifyToken = (req, res) => {
     } else {
       res.sendStatus(403);
     }
-    
+
   } catch (error) {
     res.status(400).send(error.message);
   }
