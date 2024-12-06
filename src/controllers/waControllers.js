@@ -95,8 +95,8 @@ const receivedMessage = (req, res) => {
     
     myConsole.log(message);
     const responseMessage = checkMessage(message, value);
-    console.log(responseMessage);
-    res.send('EVENT_RECEIVED');
+    // console.log(responseMessage);
+    res.send(responseMessage);
   } catch (error) {
     myConsole.error(error);
     res.sendStatus(500);
