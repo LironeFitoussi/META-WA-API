@@ -7,5 +7,4 @@ router
     .get("/", waControllers.verifyToken)
     .post("/", waControllers.receivedMessage);
 
-
 export default router;

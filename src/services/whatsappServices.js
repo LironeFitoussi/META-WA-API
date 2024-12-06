@@ -12,7 +12,7 @@ async function sendWhatsappMessage(message, number) {
     };
 
     const response = await axios.post(
-      'https://graph.facebook.com/v13.0/101935022611761/messages',
+      'https://graph.facebook.com/v21.0/506415679217950/messages',
       data,
       {
         headers: {

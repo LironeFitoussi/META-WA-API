@@ -1,12 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+import morgan from "morgan";
 
-// import routes from "./routes/routes";
 import router from "./routes/routes.js";
 
 dotenv.config();
 
 const app = express();
+app.use(morgan("tiny"));
+
 const port = process.env.PORT || 3000;
 app.use(express.json());
 

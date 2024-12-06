@@ -1,5 +1,5 @@
 import fs from 'fs';
-import sendWhatsappMessage from '../services/whatsappServices';
+import sendWhatsappMessage from '../services/whatsappServices.js';
 
 const myConsole = new console.Console(fs.createWriteStream('./logs.txt'));
 
