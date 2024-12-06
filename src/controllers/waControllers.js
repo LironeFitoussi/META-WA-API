@@ -23,7 +23,7 @@ function handleInteractiveMessage(interactiveObject) {
   }
 }
 
-const checkMessage = (message) => {
+const checkMessage = (message, value) => {
   switch (message.type) {
     case 'text':
       sendWhatsappMessage('Text message received', value.recipient_id);
@@ -85,14 +85,16 @@ const receivedMessage = (req, res) => {
     }
 
     const { value } = changes[0];
-    if (!value || !value.messages || value.messages.length === 0) {
+    
+    if (!value || !value.messages ) {
       sendWhatsappMessage(', I can only respond to text messages', value.recipient_id);
       return res.sendStatus(400);
     }
 
     const message = value.messages[0];
+    
     myConsole.log(message);
-    const responseMessage = checkMessage(message);
+    const responseMessage = checkMessage(message, value);
     console.log(responseMessage);
     res.send('EVENT_RECEIVED');
   } catch (error) {
