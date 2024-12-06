@@ -24,11 +24,11 @@ function handleInteractiveMessage(interactiveObject) {
 }
 
 const checkMessage = (message, value) => {
-  console.log(value.contacts[0].profile);
+  console.log(value.contacts[0].profile.name);
   
   switch (message.type) {
     case 'text':
-      sendWhatsappMessage('Text message received', value.contacts[0].wa_id);
+      sendWhatsappMessage(`Hi ${value.contacts[0].profile.name} my name is ChatGPT`, value.contacts[0].wa_id);
       return message.text;
     case 'image':
       sendWhatsappMessage('Image message received', value.contacts[0].wa_id);
