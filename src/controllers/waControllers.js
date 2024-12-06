@@ -47,18 +47,19 @@ const checkMessage = (message) => {
 };
 
 const verifyToken = (req, res) => {
-  try {
-    const accessToken = process.env.BOT_AUTH_TOKEN;
-    const token = req.query['hub.verify_token'];
-    const challenge = req.query['hub.challenge'];
-    if (token === accessToken) {
-      res.status(200).send(challenge);
-    } else {
-      res.sendStatus(403);
-    }
-  } catch (error) {
-    res.status(400).send(error.message);
-  }
+  // try {
+  //   const accessToken = process.env.BOT_AUTH_TOKEN;
+  //   const token = req.query['hub.verify_token'];
+  //   const challenge = req.query['hub.challenge'];
+  //   if (token === accessToken) {
+  //     res.status(200).send(challenge);
+  //   } else {
+  //     res.sendStatus(403);
+  //   }
+  // } catch (error) {
+  //   res.status(400).send(error.message);
+  // }
+  return res.send('EVENT_RECEIVED');
 };
 
 const receivedMessage = (req, res) => {
