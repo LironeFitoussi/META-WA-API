@@ -24,7 +24,7 @@ function handleInteractiveMessage(interactiveObject) {
 }
 
 const checkMessage = (message, value) => {
-  console.log(value);
+  console.log(value.contacts[0].profile);
   
   switch (message.type) {
     case 'text':
