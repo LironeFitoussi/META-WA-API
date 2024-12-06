@@ -24,23 +24,25 @@ function handleInteractiveMessage(interactiveObject) {
 }
 
 const checkMessage = (message, value) => {
+  console.log(value);
+  
   switch (message.type) {
     case 'text':
-      sendWhatsappMessage('Text message received', value.recipient_id);
+      sendWhatsappMessage('Text message received', value.contacts[0].wa_id);
       return message.text;
     case 'image':
-      sendWhatsappMessage('Image message received', value.recipient_id);
+      sendWhatsappMessage('Image message received', value.contacts[0].wa_id);
       return message.caption || 'No caption provided';
     case 'video':
-      sendWhatsappMessage('Video message received', value.recipient_id);
+      sendWhatsappMessage('Video message received', value.contacts[0].wa_id);
       return message.caption || 'No caption provided';
     case 'interactive':
-      sendWhatsappMessage('Interactive message received', value.recipient_id);
+      sendWhatsappMessage('Interactive message received', value.contacts[0].wa_id);
       const interactiveObject = message.interactive;
       handleInteractiveMessage(interactiveObject);
       break;
     default:
-      sendWhatsappMessage('Sorry, I can only respond to text messages', value.recipient_id);
+      sendWhatsappMessage('Sorry, I can only respond to text messages', value.contacts[0].wa_id);
       myConsole.log('Unknown message type');
       break;
   }
@@ -96,10 +98,10 @@ const receivedMessage = (req, res) => {
     myConsole.log(message);
     const responseMessage = checkMessage(message, value);
     // console.log(responseMessage);
-    res.send(responseMessage.body);
+    return res.send(responseMessage.body);
   } catch (error) {
     myConsole.error(error);
-    res.sendStatus(500);
+    res.status(500).send(error);
   }
 };
 
